@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: avito
+      POSTGRES_PASSWORD: avito
+      POSTGRES_DB: avito
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  app:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - db
+    command: ["python", "-m", "avito_helper.app.cli", "run-scheduler"]
+volumes:
+  db-data:

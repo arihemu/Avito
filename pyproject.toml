@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "avito-helper"
+version = "0.1.0"
+description = "Helper utilities for Avito API"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{ include = "avito_helper" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "*"
+sqlalchemy = "^2.0"
+alembic = "*"
+psycopg2-binary = "*"
+apscheduler = "*"
+typer = {extras = ["all"], version = "*"}
+python-dotenv = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+black = "*"
+mypy = "*"
+
+[tool.black]
+line-length = 88
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
